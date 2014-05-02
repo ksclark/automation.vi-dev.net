@@ -25,6 +25,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       controller: 'AppCtrl'
     })
 
+    .state('app.home', {
+      url: "/home",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/home.html"
+        }
+      }
+    })
+
     .state('app.search', {
       url: "/search",
       views: {
@@ -42,12 +51,63 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-    .state('app.playlists', {
-      url: "/playlists",
+    .state('app.music', {
+      url: "/music",
       views: {
         'menuContent' :{
-          templateUrl: "templates/playlists.html",
+          templateUrl: "templates/music.html",
           controller: 'PlaylistsCtrl'
+        }
+      }
+    })
+
+    .state('app.video',{
+      url: "/video",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/video.html",
+          controller: 'VideoCtrl'
+        }
+      }
+    })
+
+    .state('app.video_detail',{
+        url: "/video/:videoId",
+        views: {
+            'menuContent' :{
+                templateUrl: "templates/video_detail.html",
+                controller:'VideoCtrl'
+
+            }
+        }
+
+    })
+
+    .state('app.thermostat', {
+      url: "/thermostat",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/thermostat.html",
+          controller:'ThermostatCtrl'
+        }
+      }
+    })
+
+   
+    .state('app.lights', {
+      url: "/lights",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/lights.html"
+        }
+      }
+    })
+
+    .state('app.settings', {
+      url: "/settings",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/settings.html"
         }
       }
     })
@@ -60,7 +120,27 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           controller: 'PlaylistCtrl'
         }
       }
-    });
+    })
+
+    .state('app.dash', {
+      url: '/thermostat/dash',
+      views: {
+        'tab-dash': {
+          templateUrl: 'templates/thermostat/dash.html',
+          controller: 'DashCtrl'
+        }
+      }
+    })
+
+    .state('app.albums', {
+      url: "/artists/:albumId",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/albums.html",
+          controller: 'AlbumCtrl'
+        }
+      }
+    });    
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/playlists');
 });
